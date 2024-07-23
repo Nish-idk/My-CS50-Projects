@@ -1,0 +1,11 @@
+sort1 reversed50000: 5.148  BUBBLE (huge time difference between best (sorted) and worst(reversed) case)
+      sorted50000: 0.554
+      random50000: 5.544
+
+sort2 reversed50000: 0.410 MERGE (almost consistent time difference; shortest times of all)
+      sorted50000: 0.537
+      random50000: 0.505
+
+sort3 reversed50000: 2.503 SELECTION (almost consistent time difference since regardless of whether sorted or unsorted same amount of steps are required)
+      sorted50000: 2.226
+      random50000: 2.145

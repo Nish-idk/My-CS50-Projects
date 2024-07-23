@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: huge time difference between best(sorted) and worst(reversed) case
+
+sort2 uses: Merge Sort
+
+How do you know?: almost consistent time; shortest times of all
+
+sort3 uses: Selection Sort
+
+How do you know?: almost consistent time (took more time) since regardless of whether sorted or unsorted same amount of steps are required

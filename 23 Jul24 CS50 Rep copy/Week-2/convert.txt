@@ -1,0 +1,2 @@
+get string input from user
+

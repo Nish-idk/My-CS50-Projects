@@ -1,0 +1,13 @@
+
+    // Creating alphabetical index arrays for both uppercase and lowercase characters
+    char ENCRYPTION[26];
+    for (int i = 0; i < 26; i++)
+    {
+        ENCRYPTION[i] = 65 + i;
+    }
+
+    char encryption[26];
+    for (int i = 0; i < 26; i++)
+    {
+        encryption[i] = 97 + i;
+    }

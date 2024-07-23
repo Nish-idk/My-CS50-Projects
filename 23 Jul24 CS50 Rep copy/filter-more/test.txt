@@ -1,0 +1,14 @@
+// Creating a struct to store Gx^2 + Gy^2 as "long" type
+typedef struct
+{
+    long rgbtBlue;
+    long rgbtGreen;
+    long rgbtRed;
+}
+square;
+
+// CHANGING Gx and Gy from RGBTRIPLE to SQUARE
+square Gx[height][width];
+square Gy[height][width];
+
+(int) round(sqrt(pow(Gx[i][j].rgbtBlue, 2) + pow(Gy[i][j].rgbtBlue, 2)))

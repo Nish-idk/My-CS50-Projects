@@ -1,0 +1,20 @@
+int collatz(int n)
+{
+    if (n == 1)
+    {
+        return 0;
+    }
+    else if (n is even)
+    {
+        n /= 2;
+        collatz(n);
+    }
+    else if (n is odd)
+    {
+        n *= 3 + 1;
+        collatz(n);
+    }
+}
+
+conditions for n being even?
+divisibility is not a valid test

@@ -1,0 +1,26 @@
+    // Creating an array of pointers to point to 50 JPEGs
+    FILE * JPEG_ptr[50];
+
+    // Creating a string to store the 7 chars of each JPEG file's name
+    char filename[8];
+
+    BYTE buffer[512];
+
+    // Finding the first JPEG file
+    while(fread(buffer, 512, 1, card))
+    {
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
+        {
+            sprintf(filename, "%03i.jpg", 0);
+            JPEG_ptr[0] = fopen(filename, "w");
+            fwrite(buffer, 512, 1, JPEG_ptr[0]);
+
+            while (!(buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0))
+            {
+                fread(buffer, 512, 1, card);
+                fwrite(buffer, 512, 1, JPEG_ptr[0]);
+            }
+            fseek(file, -512, SEEK_CUR);
+            fclose(JPEG_ptr[0]);
+        }
+    }

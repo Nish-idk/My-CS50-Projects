@@ -1,0 +1,46 @@
+float count = 9;
+BYTE sum = 0;
+typedef struct
+{
+    float rgbtBlue;
+    float rgbtGreen
+    float rgbtRed;
+}
+sum
+
+sum pixel_sum[3][3];
+sum average[height][wdith];
+
+for (int i = 0; i < height; i++)
+{
+    for (int j = 0; j < width; j++)
+    {
+        for (int k = 0; k < 3; k++)
+        {
+            for (int l = 0; l < 3; l++)
+            {
+                if (i - 1 + k < 0 || j - 1 + l < 0 || i - 1 + k == height || j - 1 + l == width)
+                {
+                    count--;
+                }
+                else
+                {
+                    pixel_sum.rgbtBlue += copy[i - 1 + k][j - 1 + l].rgbtBlue;
+                    pixel_sum.rgbtGreen += copy[i - 1 + k][j - 1 + l].rgbtGreen
+                    pixel_sum.rgbtRed += copy[i - 1 + k][j - 1 + l].rgbtRed;
+                }
+            }
+        }
+        average[i][j].rgbtBlue = pixel_sum.rgbtBlue / count;
+        average[i][j].rgbtGreen = pixel_sum.rgbtGreen / count;
+        average[i][j].rgbtRed = pixel_sum.rgbtRed / count;
+
+        image[i][j].rgbtBlue = (int) round(average[i][j].rgbtBlue);
+        image[i][j].rgbtGreen = (int) round(average[i][j].rgbtGreen);
+        image[i][j].rgbtRed = (int) round(average[i][j].rgbtRed);
+        count = 9;
+        sum = 0;
+    }
+}
+
+

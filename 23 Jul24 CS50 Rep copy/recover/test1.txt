@@ -1,0 +1,42 @@
+int i = 0;
+int return_value = 1;
+
+while (return_value == 1)
+{
+    if (i = 0)
+    {
+        while (!(buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0))
+        {
+            // buffer will store the very first block; fread will point to the second block
+            return_value = fread(buffer, 512, 1, card);
+        }
+    }
+
+    // When the code reaches this stage, fread has read the very first header block, stored its contents in buffer, and now points to the second block of the first JPEG
+    sprintf(filename, "%03i.jpg", i);
+    JPEG_ptr[i] = fopen(filename, "w");
+    // Writing the contents of the header to the first JPEG
+    fwrite(buffer, 512, 1, JPEG_ptr[i]);
+
+    if (i = 49)
+    {
+        while (return_value == 1)
+        {
+            return_value = fread(buffer, 512, 1, card);
+            fwrite(buffer, 512, 1, JPEG_ptr[i]);
+        }
+        break;
+    }
+
+    while (!(buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0))
+    {
+        return_value = fread(buffer, 512, 1, card);
+        fwrite(buffer, 512, 1, JPEG_ptr[i]);
+    }
+    // At this stage the next header has been found; writing this into the same JPEG file,
+    fwrite(buffer, 512, 1, JPEG_ptr[i]);
+    i++;
+}
+
+// When the code reaches this point, the 50th JPEG has been written.
+fclose(filename);

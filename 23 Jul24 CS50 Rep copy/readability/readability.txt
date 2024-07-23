@@ -1,0 +1,5 @@
+num(letters)... use isupper || islower
+num(words)... isblank + 1
+num(sentences)... is '.' || '!'
+
+to round grade use math.h

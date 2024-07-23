@@ -1,0 +1,3 @@
+// Tracks the number of hours you slept each night
+
+create array night[] 
